@@ -52,6 +52,8 @@ $ node hello.js
 Hello, World!
 ```
 
+実装例: [examples/hello-world](https://github.com/TUS-OSK/Introduction-to-Nodejs/tree/master/examples/hello-world)
+
 ### NPMの使い方
 NPM ( Node Package Manager ) はパッケージと呼ばれる、Node.jsで動作するライブラリのようなものを管理するためのアプリケーションで、Node.jsに同梱されている
 
@@ -102,6 +104,8 @@ $ node server.js
 
 ```pong```と表示されていれば成功
 
+実装例: [examples/ping-pong](https://github.com/TUS-OSK/Introduction-to-Nodejs/tree/master/examples/ping-pong)
+
 # 演習
 ## クライアントからAPIを叩いてみよう
 国際宇宙ステーションの位置を取得できるAPIにクライアントサイドJSからアクセスして、HTML上に緯度と経度を表示してみよう
@@ -110,12 +114,16 @@ $ node server.js
 
 参考: [Fetch](https://developer.mozilla.org/ja/docs/Web/API/Fetch_API/Using_Fetch)
 
+実装例: [examples/lets-call-api](https://github.com/TUS-OSK/Introduction-to-Nodejs/tree/master/examples/lets-call-api)
+
 ## 掲示板を作ってみよう
 某「○ch」みたいな掲示板を作ってみよう
 
 送信・表示はテキストだけでよい
 
 余力があればそれぞれのメッセージの投稿時刻も表示してみよう
+
+実装例: [examples/bulletin-board](https://github.com/TUS-OSK/Introduction-to-Nodejs/tree/master/examples/bulletin-board)
 
 ## じゃんけんアプリを作ってみよう (発展)
 Socket通信を使ってじゃんけんのリアルタイム対戦
