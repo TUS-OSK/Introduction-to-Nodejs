@@ -3,6 +3,8 @@ const text = document.querySelector("#text")
 const button = document.querySelector("#button")
 const timeline = document.querySelector("#timeline")
 
+getTimeline()
+
 async function send() {
 	const message = text.value
 	if(!message || !message.trim()) {
