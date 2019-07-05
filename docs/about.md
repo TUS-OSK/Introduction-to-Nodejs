@@ -1,6 +1,6 @@
 # サーバーとは
 ## サーバーの存在意義
-サーバーを用いることで、クライアント ( ブラウザ ) 同士で相互にデータをやりとりしたり、データやサービス ( プログラム ) を多くの人に利用させることができる
+サーバーを用いることで、クライアント ( 主にブラウザのこと、詳しくは後述 ) 同士で相互にデータをやりとりしたり、データやサービス ( プログラム ) を多くの人に利用させることができる
 
 ### データベース
 サーバーが大量のデータを保持・利用する場合、変数を使っていてはプログラムが停止したとき消えてしまったり、テキストファイルに書き出していては読み書きが遅くなってしまう
@@ -12,6 +12,9 @@
 ### リアルタイム通信
 複数台のコンピュータ間で同期した通信を行う場合、サーバーがタイミングを
 合わせる役目をすることが多い
+
+## 言語
+PHPやRubyがよく使われるが、JavaScriptでもPythonでもC++でもだいたいどれでも書ける
 
 ## クライアントとの関係
 ### バックエンド？フロントエンド？
@@ -49,7 +52,33 @@
 
 詳しくは、[3分間ネットワーク基礎講座](https://drive.google.com/open?id=10wfgOFDve3TuHCtCKXi10J1QHzqTjhfL) 58ページから
 
-#### HTTP / HTTPS
+#### HTTP
+HTTPはインターネット上の文書の送受信のために作られたプロトコル
+
+##### リクエスト・レスポンス
+HTTPでは、リクエストと呼ばれるデータを通信先のアドレスに向かって送信し、それに対して通信先のコンピュータがレスポンスというデータを返してくる、という形で一連の通信が行われる
+
+リクエストを送る側をクライアント、リクエストを受け取ってレスポンスを送る側をサーバーと呼ぶ
+
+リクエストやレスポンスには、ヘッダー ( header ) とボディ ( body ) がある
+
+ヘッダーにはボディのデータ形式など通信に必要なメタデータが、ボディには通信の目的を果たすための情報が含まれる
+
+##### HTTPメソッド
+HTTPで通信を行うとき、その通信の目的に応じてメソッドを使う
+
+主に以下のメソッドが使われる
+
+- GET
+	- 情報をサーバーから取得する
+- POST
+	- 情報をサーバーに送信する
+- PUT
+	- サーバー上の情報を更新する
+- DELETE
+	- サーバーから情報を削除する
+
+#### HTTPS
 HTTPSはHTTPに暗号化の機能を追加したもの ( HTTP over SSL/TLS ) であり、厳密にはHTTPSというプロトコルはない
 
 > TLS ( Transport Layer Security ) は、HTTPなどよりも深い層にあるプロトコルで、HTTPの他にもFTPやSMTP ( メール送受信用のプロトコル ) なども暗号化できる
@@ -62,5 +91,23 @@ API ( Application Programing Interface ) とは、サービスをプログラム
 #### エンドポイント
 APIのリクエスト先URLとプロトコルをあわせてエンドポイントと呼ぶが、大抵プロトコルはHTTPなので実質URLと同義
 
-## 言語
-PHPやRubyがよく使われるが、JavaScriptでもPythonでもC++でもだいたいどれでも書ける
+### CORS
+サーバーは原則として、同一オリジン ( = 同一ドメイン ) 上のWebアプリケーションにのみ、そのリソース ( 情報資源や計算資源 ) を提供する
+
+試しに適当なページでConsoleを開き、
+```js
+fetch("https://google.com").then(res => res.json.then(json => console.log(json)))
+```
+を実行してみると
+```shell
+Access to fetch at 'https://google.com/' from origin 'https://example.com' has been blocked by CORS policy: No 'Access-Control-Allow-Origin' header is present on the requested resource.
+```
+というようなエラーが出る
+
+これは ```https://google.com``` にGETリクエストを送信してレスポンスをConsoleに表示するような命令であるが、google.comはCORSをオフにしているのでリクエストがブロックされたことを表している
+
+CORS ( Cross-Origin Resource Sharing ) とは、異なるオリジンのWebアプリケーションにリソースを共有できるようにするもの
+
+初期設定ではCORSはオフになっているので、利用したい場合はサーバー側に設定が必要
+
+参考: [ExpressにおけるCORSの設定](https://expressjs.com/en/resources/middleware/cors.html)

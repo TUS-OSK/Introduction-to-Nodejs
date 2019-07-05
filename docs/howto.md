@@ -104,6 +104,8 @@ $ node server.js
 
 ```pong```と表示されていれば成功
 
+これは、すなわち ```GET /ping``` ( エンドポイント ```http://~~~/ping``` のGETリクエスト )　に対して ```pong``` と返すようなAPIを実装したことに相当する
+
 実装例: [examples/ping-pong](https://github.com/TUS-OSK/Introduction-to-Nodejs/tree/master/examples/ping-pong)
 
 # 演習
@@ -122,6 +124,8 @@ $ node server.js
 送信・表示はテキストだけでよい
 
 余力があればそれぞれのメッセージの投稿時刻も表示してみよう
+
+参考: [CORS](https://developer.mozilla.org/ja/docs/Web/HTTP/CORS/Errors)
 
 実装例: [examples/bulletin-board](https://github.com/TUS-OSK/Introduction-to-Nodejs/tree/master/examples/bulletin-board)
 
