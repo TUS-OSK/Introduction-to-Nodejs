@@ -86,13 +86,18 @@ $ npm i -S express
 以下のようなserver.jsを作成してNode.jsで実行してみよう
 
 ```js
+// requireでパッケージ「express」をひっぱってくる
 const express = require("express")
+// expressのインスタンスを生成
 const app = express()
 
-app.get("/ping", function (req, res) {
+// GET /ping へのリクエストを処理する関数の登録
+app.get("/ping", function(req, res) {
+	// レスポンスとして文字列「pong」を送信する
 	res.send("pong")
 })
 
+// 3000番ポートでサーバーを立てる
 app.listen(3000)
 ```
 
