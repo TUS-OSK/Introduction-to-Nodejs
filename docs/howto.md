@@ -72,6 +72,21 @@ NPM ( Node Package Manager ) はパッケージと呼ばれる、Node.jsで動�
 	- グローバルインストール
 	- コマンドのように実行できるようになる
 
+```npm install``` ( ```npm i``` ) のみで実行した場合は、package.jsonの情報を基に依存パッケージを自動的にインストールする
+
+依存関係はnode_modulesというディレクトリ下にインストールされるが、これは宇宙で最も重いモノの1つである
+
+![Heaviest Objects in the Universe](./img/heaviest-objects-in-the-universe.png)
+
+node_modulesは**必ず**Git管理から除外しておくこと
+
+> ##### .gitignore
+> .gitignoreというファイルに記述したものと一致する名前のファイルやディレクトリはGit管理から除外される
+>
+> ディレクトリとファイルを指定し分けたり、ワイルドカードが使えたりするので記法に関して詳しくは[公式ドキュメント](https://git-scm.com/docs/gitignore)か[Qiita](https://qiita.com/anqooqie/items/110957797b3d5280c44f)を参照
+>
+> また、.gitignoreを自動生成する[gibo](https://github.com/simonwhitaker/gibo)という便利なツールもあるので参考までに
+
 ### Expressの使い方
 ExpressはNode.jsで最もユーザー数が多そうなサーバーフレームワーク
 
