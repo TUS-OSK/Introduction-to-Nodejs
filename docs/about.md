@@ -115,6 +115,13 @@ http://172.217.26.14:80
 
 UNIX系OSでは、```172.0.0.1```というIPアドレスが自身を指し、```localhost```としてもアクセスできる
 
+#### Ajax
+Ajax ( Asynchronous JavaScript + XML ) とは、Webページを再読込 ( リロード ) することなく表示されている情報を非同期的に更新する技術
+
+ページの読み込み時に真っ白の画面になるのは同期的に読み込まれているから
+
+JSのfetch関数で行う通信はAjax
+
 ### API
 API ( Application Programing Interface ) とは、サービスをプログラム上から利用するための窓口のようなもの
 
