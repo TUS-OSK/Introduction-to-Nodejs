@@ -74,11 +74,13 @@ NPM ( Node Package Manager ) はパッケージと呼ばれる、Node.jsで動�
 
 ```npm install``` ( ```npm i``` ) のみで実行した場合は、package.jsonの情報を基に依存パッケージを自動的にインストールする
 
-依存関係はnode_modulesというディレクトリ下にインストールされるが、これは宇宙で最も重いモノの1つである
+依存パッケージ群はnode_modulesというディレクトリ下にインストールされるが、これは宇宙で最も重いモノの1つである
 
 ![Heaviest Objects in the Universe](./img/heaviest-objects-in-the-universe.png)
 
 node_modulesは**必ず**Git管理から除外しておくこと
+
+つまり、世の中に公開されているNodeプロジェクトはnode_modulesを含まないので、クローンしたらまず```npm i```しなければならない
 
 > ##### .gitignore
 > .gitignoreというファイルに記述したものと一致する名前のファイルやディレクトリはGit管理から除外される
